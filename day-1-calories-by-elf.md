@@ -6,7 +6,6 @@ The Elves take turns writing down the number of Calories contained by the variou
 
 For example, suppose the Elves finish writing their items' Calories and end up with the following list:
 
-|---|
 |calories|
 |---------|
 |1000|
