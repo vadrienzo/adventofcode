@@ -16,8 +16,8 @@ To supply enough magical energy, the expedition needs to retrieve a minimum of *
 **Collect stars by solving puzzles**. **Two puzzles** will be made available on **each day** in the Advent calendar; the second puzzle is unlocked when you complete the first. Each puzzle grants one star. Good luck!
 
 
-- [x] [Day 1](https://adventofcode.com/2022/day/1) :star: :star:
-- [ ] [Day 2](https://adventofcode.com/2022/day/2)
+- [x] [Day 1](https://adventofcode.com/2022/day/1) ⭐ ⭐
+- [x] [Day 2](https://adventofcode.com/2022/day/2) ⭐ ⭐
 - [ ] [Day 3](https://adventofcode.com/2022/day/3)
 - [ ] [Day 4](https://adventofcode.com/2022/day/4)
 - [ ] [Day 5](https://adventofcode.com/2022/day/5)
