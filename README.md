@@ -14,7 +14,7 @@ To supply enough magical energy, the expedition needs to retrieve a minimum of *
 - [x] [Day 2](https://adventofcode.com/2022/day/2) ⭐ ⭐
 - [x] [Day 3](https://adventofcode.com/2022/day/3) ⭐ ⭐
 - [x] [Day 4](https://adventofcode.com/2022/day/4) ⭐ ⭐
-- [ ] [Day 5](https://adventofcode.com/2022/day/5)
+- [x] [Day 5](https://adventofcode.com/2022/day/5) ⭐ ⭐
 - [ ] [Day 6](https://adventofcode.com/2022/day/6)
 - [ ] [Day 7](https://adventofcode.com/2022/day/7)
 - [ ] [Day 8](https://adventofcode.com/2022/day/8)
