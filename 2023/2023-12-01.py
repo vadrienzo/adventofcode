@@ -34,8 +34,8 @@ def part_2(data: pd.DataFrame) -> int:
             str(words_to_number[group]) if group in words_to_number else group
             for group in re.split(
                 (
-                    r"(sevenine|eightwo|oneight|twone|nineight|eighthreeone"
-                    r"|one|two|three|four|five|six|seven|eight|nine)"
+                    r"(sevenine|eightwo|oneight|twone|nineight|eighthree|"
+                    r"one|two|three|four|five|six|seven|eight|nine)"
                 ),
                 x,
             )
