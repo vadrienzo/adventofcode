@@ -21,6 +21,13 @@ def part_1(df: pd.DataFrame) -> pd.DataFrame:
     return df[mask]
 
 
+def part_2(df: pd.DataFrame) -> pd.DataFrame:
+    # finding the minimal set using the max element of each color
+    for color in ["red", "blue", "green"]:
+        df[f"max_{color}"] = df[color].apply(lambda x: max(x))
+    return df
+
+
 def main(args: argparse.Namespace):
     ## Part One --------------------
     data = pd.read_csv(f"{args.data_dir}/day-2-part1.csv", sep=":").assign(
@@ -33,7 +40,14 @@ def main(args: argparse.Namespace):
     part1 = part_1(splited_data)
     # print("Masked data\n")
     # print(part1.head())
-    print(f"Sum of ID games: {part1.gameid.sum()}")
+    print(f"Sum of ID games: {part1.gameid.sum():,}")
+    print("Part Two --------------------")
+    part2 = part_2(splited_data)
+    part2["power_min_set"] = part2.max_red * part2.max_blue * part2.max_green
+    print(
+        "Adding all minimal set powers, we have:"
+        f" {part2.power_min_set.sum():,}"
+    )
 
 
 if __name__ == "__main__":
