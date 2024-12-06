@@ -1,0 +1,60 @@
+repos:
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.5.5
+    hooks:
+      - id: uv-lock
+  - repo: https://github.com/psf/black
+    rev: 24.10.0
+    hooks:
+      - id: black
+  - repo: https://github.com/pycqa/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.8.1
+    hooks:
+      - id: ruff
+        types_or: [python, pyi, jupyter]
+        args: [--fix, --exit-non-zero-on-fix]
+  - repo: https://github.com/PyCQA/autoflake
+    rev: v2.3.1
+    hooks:
+      - id: autoflake
+        args: [--remove-all-unused-imports]
+  - repo: https://github.com/smartdatafoundry/docformatter
+    # forked from https://github.com/PyCQA/docformatter due to pre-commit incompatiblity
+    # fixed in the repo but not released.
+    # https://github.com/PyCQA/docformatter/issues/293
+    rev: v1.7.6
+    hooks:
+      - id: docformatter
+        args: [--config, pyproject.toml]
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-toml
+      - id: check-yaml
+      - id: check-json
+      - id: check-xml
+      - id: check-case-conflict
+      - id: fix-byte-order-marker
+      - id: check-symlinks
+      - id: detect-private-key
+        # - id: check-merge-conflict
+  - repo: https://github.com/executablebooks/mdformat
+    rev: 0.7.19
+    hooks:
+      - id: mdformat
+        exclude: '(\.github/pull_request_template\.md|\.github/ISSUE_TEMPLATE/.*\.md)'
+  - repo: https://github.com/google/yamlfmt
+    rev: v0.14.0
+    hooks:
+      - id: yamlfmt
+        # exclude: '(sourcedata|.devcontainer)/.*|src/uncannyglen/simulate/_simparams.pyi|dbt_pipeline/dbt_packages/.*'
+        # ignore simparams.pyi because we generate it in simparams-stub hook and it is not friendly to black/isort etc.
+# ci:
+#   skip: [simparams-stub, sqlfluff-lint, sqlfluff-fix]
+
+# simparams stub doesn't work on pre-commit.ci because it requires local environment
+# sqlfluff requires dbt dependencies which are not available on pre-commit.ci

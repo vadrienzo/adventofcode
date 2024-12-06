@@ -1,19 +1,17 @@
-"""
-Advent of Code Day 1
-"""
+"""Advent of Code Day 1."""
+
 import argparse
+
 import number2word as n2w
 import pandas as pd
 import regex as re
 
 
-def part_1(
-    data: pd.DataFrame, column_to_use: str = 'potential_calibration'
-) -> int:
-    data['calibration'] = (
+def part_1(data: pd.DataFrame, column_to_use: str = "potential_calibration") -> int:
+    data["calibration"] = (
         data[column_to_use]
-        .str.findall('\d')
-        .apply(lambda x: f'{x[0]}{x[-1]}')
+        .str.findall("\d")
+        .apply(lambda x: f"{x[0]}{x[-1]}")
         .astype(int)
     )
     return data.calibration.sum()
@@ -46,17 +44,17 @@ def part_2(data: pd.DataFrame) -> int:
 
 def main(args: argparse.Namespace):
     ## Part One --------------------
-    data = pd.read_csv(f'{args.data_dir}/day-1-part1.csv')
+    data = pd.read_csv(f"{args.data_dir}/day-1-part1.csv")
     total_calibration = part_1(data)
-    print(f'\nPart One: Total calibration: {total_calibration:,}\n')
+    print(f"\nPart One: Total calibration: {total_calibration:,}\n")
 
     ## Part Two --------------------
-    data = pd.read_csv(f'{args.data_dir}/day-1-part2.csv')
+    data = pd.read_csv(f"{args.data_dir}/day-1-part2.csv")
     total_calibration = part_2(data)
-    print(f'Part Two: Total calibration: {total_calibration:,}\n')
+    print(f"Part Two: Total calibration: {total_calibration:,}\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "data_dir",

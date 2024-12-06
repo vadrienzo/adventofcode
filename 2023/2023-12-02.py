@@ -1,4 +1,5 @@
 import argparse
+
 import pandas as pd
 
 
@@ -7,7 +8,7 @@ def split_colours_into_integers(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
     for color in ["red", "blue", "green"]:
         df[color] = df.record_of_games.str.findall(rf"(\d+ {color})").apply(
-            lambda x: [int(item.replace(f' {color}', "")) for item in x]
+            lambda x: [int(item.replace(f" {color}", "")) for item in x]
         )
     return df
 
@@ -44,10 +45,7 @@ def main(args: argparse.Namespace):
     print("Part Two --------------------")
     part2 = part_2(splited_data)
     part2["power_min_set"] = part2.max_red * part2.max_blue * part2.max_green
-    print(
-        "Adding all minimal set powers, we have:"
-        f" {part2.power_min_set.sum():,}"
-    )
+    print("Adding all minimal set powers, we have:" f" {part2.power_min_set.sum():,}")
 
 
 if __name__ == "__main__":
